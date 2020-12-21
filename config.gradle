@@ -1,0 +1,22 @@
+ext {
+    android = [
+            compileSdkVersion: 28,
+            minSdkVersion    : 21,
+            targetSdkVersion : 28,
+            versionCode      : 1,
+            versionName      : "1.1",
+    ]
+
+
+    libsVersion = [
+            butterknife_version = "10.0.0",
+            retrofit_version = "2.6.1",
+            lifecycle_version = "2.2.0",
+    ]
+    dependencies = [
+            appcompat             : "androidx.appcompat:appcompat:1.0.0",
+            arouterApi            : "com.alibaba:arouter-api:1.5.0",
+            arouterCompiler       : "com.alibaba:arouter-compiler:1.2.2",
+    ]
+
+}
