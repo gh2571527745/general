@@ -1,4 +1,4 @@
-package com.ld.lib_base.constant
+package com.ld.lib_base.network
 
 /**
  *  author : ld
@@ -6,6 +6,5 @@ package com.ld.lib_base.constant
  *  desc   :
  */
 object StringConstant {
-
     const val STRING_NET_LOADING = "请求网络中..."
 }
