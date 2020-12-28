@@ -11,7 +11,7 @@ class NetworkStateManager private constructor() {
     val mNetworkStateCallback = EventLiveData<NetState>()
 
     companion object {
-        val instance: NetworkStateManager by lazy {
+        val instance: NetworkStateManager by lazy(mode = LazyThreadSafetyMode.SYNCHRONIZED) {
             NetworkStateManager()
         }
     }
