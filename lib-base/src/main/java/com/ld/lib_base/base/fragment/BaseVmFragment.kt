@@ -44,7 +44,6 @@ abstract class BaseVmFragment<VM : BaseViewModel> : Fragment() {
         mViewModel = creteViewModel()
         initView(savedInstanceState)
         createObserver()
-        registorUiChange()
         initData()
     }
 
@@ -74,7 +73,7 @@ abstract class BaseVmFragment<VM : BaseViewModel> : Fragment() {
     /**
      * 网络变化监听 子类重写
      */
-    abstract fun onNetwordStateChanged(it: NetState?)
+    open fun onNetwordStateChanged(it: NetState?) {}
 
     /**
      * 懒加载
@@ -85,19 +84,6 @@ abstract class BaseVmFragment<VM : BaseViewModel> : Fragment() {
      * Fragment执行onCreate后触发的方法
      */
     abstract fun initData()
-
-    private fun registorUiChange() {
-        mViewModel.loading.showDialog.observeInFragment(this, {
-            showLoading()
-        })
-        mViewModel.loading.diamissDialog.observeInFragment(this, {
-            dismissLoading()
-        })
-    }
-
-    abstract fun dismissLoading()
-
-    abstract fun showLoading(message: String = "请求网络中...")
 
     /**
      * 创建观察者

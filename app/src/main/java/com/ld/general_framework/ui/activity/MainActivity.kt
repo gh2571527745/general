@@ -1,7 +1,8 @@
-package com.ld.general_framework
+package com.ld.general_framework.ui.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.ld.general_framework.R
 
 class MainActivity : AppCompatActivity() {
 

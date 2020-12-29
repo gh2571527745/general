@@ -8,7 +8,7 @@ import com.ld.lib_base.callback.livedata.event.EventLiveData
  *  time   : 2020/12/21
  *  desc   :ViewModel的基类
  */
-class BaseViewModel : ViewModel() {
+open class BaseViewModel : ViewModel() {
     val loading: UiLoading by lazy { UiLoading() }
 
     inner class UiLoading {

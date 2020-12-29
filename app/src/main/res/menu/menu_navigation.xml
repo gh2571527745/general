@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/menu_main"
+        android:checked="true"
+        android:icon="@drawable/menu_main"
+        android:title="@string/bottom_name1" />
+
+    <item
+        android:id="@+id/menu_project"
+        android:icon="@drawable/menu_me"
+        android:title="@string/bottom_name2" />
+
+</menu>
