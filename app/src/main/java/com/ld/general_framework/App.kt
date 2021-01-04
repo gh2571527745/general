@@ -3,7 +3,7 @@ package com.ld.general_framework
 import androidx.multidex.MultiDex
 import com.kingja.loadsir.callback.SuccessCallback
 import com.kingja.loadsir.core.LoadSir
-import com.ld.general_framework.weight.loadCallBack.LoadingCallBack
+import com.ld.lib_widget.widget.loadCallBack.LoadingCallBack
 import com.ld.lib_base.base.BaseApp
 import com.ld.lib_base.ext.util.jetpackMvvmLog
 import com.tencent.mmkv.MMKV

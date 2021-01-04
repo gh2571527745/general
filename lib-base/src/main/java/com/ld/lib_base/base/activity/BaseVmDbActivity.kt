@@ -8,7 +8,7 @@ import com.ld.lib_base.base.viewmodel.BaseViewModel
 /**
  *  author : ld
  *  time   : 2020/12/25
- *  desc   :
+ *  desc   :需要使用Databing的继承
  */
 abstract class BaseVmDbActivity<VM : BaseViewModel, DB : ViewDataBinding> : BaseVmActivity<VM>() {
     lateinit var mDatabing: DB

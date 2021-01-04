@@ -1,6 +1,7 @@
 package com.ld.lib_base.base.activity
 
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.ld.lib_base.base.viewmodel.BaseViewModel
@@ -46,7 +47,7 @@ abstract class BaseVmActivity<VM : BaseViewModel> : AppCompatActivity() {
     /**
      * 网络变化监听
      */
-    open fun onNetworkStateChanged(it: NetState?) {}
+    open fun onNetworkStateChanged(it: NetState) {}
 
     /**
      * 创建LiveData数据观察类

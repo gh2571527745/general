@@ -38,7 +38,7 @@ import androidx.navigation.NavOptions;
 import androidx.navigation.Navigator;
 import androidx.navigation.NavigatorProvider;
 
-import me.hgj.jetpackmvvm.R;
+import com.ld.lib_base.R;
 
 
 /**

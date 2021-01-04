@@ -7,8 +7,8 @@ android {
     buildToolsVersion "30.0.2"
 
     defaultConfig {
-        minSdkVersion 16
-        targetSdkVersion 30
+        minSdkVersion rootProject.ext.android.minSdkVersion
+        targetSdkVersion rootProject.ext.android.targetSdkVersion
         versionCode 1
         versionName "1.0"
 
@@ -27,10 +27,20 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation 'androidx.appcompat:appcompat:1.2.0'
-    implementation 'androidx.core:core-ktx:1.3.2'
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+
+    //第三方recyclerview
+    api 'com.yanzhenjie.recyclerview:x:1.3.2'
+
+    //util
+    api 'com.blankj:utilcodex:1.26.0'
+
+    //管理界面状态库
+    api 'com.kingja.loadsir:loadsir:1.3.8'
+
+    //微信开源项目，替代SP
+    api 'com.tencent:mmkv:1.0.22'
+
+    api 'com.google.android.material:material:1.3.0-alpha03'
+
+    implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.1.0"
 }

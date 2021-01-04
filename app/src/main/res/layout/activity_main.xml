@@ -11,5 +11,12 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <fragment
+            android:id="@+id/fragment_host"
+            android:name="com.ld.general_framework.ui.fragment.MainFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:navGraph="@layout/fragment_main" />
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 </layout>

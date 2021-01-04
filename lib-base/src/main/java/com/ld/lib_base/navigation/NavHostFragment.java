@@ -37,7 +37,7 @@ import androidx.navigation.NavHostController;
 import androidx.navigation.Navigation;
 import androidx.navigation.Navigator;
 
-import me.hgj.jetpackmvvm.R;
+import com.ld.lib_base.R;
 
 
 /**

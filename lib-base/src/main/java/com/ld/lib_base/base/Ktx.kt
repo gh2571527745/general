@@ -52,7 +52,7 @@ class Ktx : ContentProvider() {
         mNetworkStateReceive = NetworkStateReceive()
         app.registerReceiver(
             mNetworkStateReceive,
-            IntentFilter(ConnectivityManager.EXTRA_NO_CONNECTIVITY)
+            IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION)
         )
 
         if (watchActivityLife) application.registerActivityLifecycleCallbacks(KtxLifeCycleCallBack())
