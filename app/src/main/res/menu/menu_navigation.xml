@@ -7,7 +7,7 @@
         android:title="@string/bottom_name1" />
 
     <item
-        android:id="@+id/menu_project"
+        android:id="@+id/menu_other"
         android:icon="@drawable/menu_me"
         android:title="@string/bottom_name2" />
 

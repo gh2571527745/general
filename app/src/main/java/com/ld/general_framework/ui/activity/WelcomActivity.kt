@@ -40,8 +40,6 @@ class WelcomActivity : BaseActivity<BaseViewModel, ActivityWelcomeBinding>() {
             LogUtils.e("toMain")
             CacheUtil.setFirst(false)
 
-
-            ARouter.getInstance().build(RouterActivityPath.Main.PAGE_MAIN).navigation()
             lanchMain()
 
             finish()
