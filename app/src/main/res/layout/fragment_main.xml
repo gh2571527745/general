@@ -18,9 +18,9 @@
         <com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx
             android:id="@+id/mainBottom"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="@dimen/qb_px_100"
             android:background="@color/color_bg_2"
-            app:itemIconSize="20dp"
+            app:itemIconSize="@dimen/qb_px_40"
             app:itemIconTint="@color/bottom_selector"
             app:itemTextColor="@color/bottom_selector"
             app:menu="@menu/menu_navigation" />
