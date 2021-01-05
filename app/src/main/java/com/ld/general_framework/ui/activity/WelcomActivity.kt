@@ -2,12 +2,14 @@ package com.ld.general_framework.ui.activity
 
 import android.content.Intent
 import android.os.Bundle
+import com.alibaba.android.arouter.launcher.ARouter
 import com.blankj.utilcode.util.LogUtils
 import com.ld.general_framework.R
 import com.ld.general_framework.databinding.ActivityWelcomeBinding
 import com.ld.general_framework.ext.lanchMain
 import com.ld.lib_base.base.activity.BaseActivity
 import com.ld.lib_base.base.viewmodel.BaseViewModel
+import com.ld.lib_base.constant.RouterActivityPath
 import com.ld.lib_base.util.CacheUtil
 
 /**
@@ -38,6 +40,8 @@ class WelcomActivity : BaseActivity<BaseViewModel, ActivityWelcomeBinding>() {
             LogUtils.e("toMain")
             CacheUtil.setFirst(false)
 
+
+            ARouter.getInstance().build(RouterActivityPath.Main.PAGE_MAIN).navigation()
             lanchMain()
 
             finish()

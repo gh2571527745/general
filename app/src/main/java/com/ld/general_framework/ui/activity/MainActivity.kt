@@ -16,7 +16,7 @@ import com.ld.lib_base.network.network.manager.NetState
 
 @Route(path = RouterActivityPath.Main.PAGE_MAIN)
 class MainActivity : BaseActivity<BaseViewModel, ActivityMainBinding>() {
-    override fun layoutId(): Int = R.layout.activity_home
+    override fun layoutId(): Int = R.layout.activity_main
 
     var exitTime = 0L
     override fun initView(savedInstanceState: Bundle?) {

@@ -37,5 +37,4 @@ fun ViewPager2.initMain(fragment: Fragment): ViewPager2 {
     return this
 }
 fun WelcomActivity.lanchMain(){
-    ARouter.getInstance().build(RouterActivityPath.Main.PAGE_MAIN).navigation()
 }
