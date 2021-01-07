@@ -1,7 +1,7 @@
 package com.ld.lib_base.event
 
 import com.ld.lib_base.base.viewmodel.BaseViewModel
-import com.ld.lib_base.bean.CollectBus
+import com.ld.lib_base.bean.Event
 import com.ld.lib_base.callback.livedata.event.EventLiveData
 
 
@@ -13,5 +13,5 @@ import com.ld.lib_base.callback.livedata.event.EventLiveData
 class EventViewModel : BaseViewModel() {
 
     //全局收藏，在任意一个地方收藏或取消收藏，监听该值的界面都会收到消息
-    val collectEvent = EventLiveData<CollectBus>()
+    val event = EventLiveData<Event>()
 }

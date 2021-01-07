@@ -22,6 +22,8 @@ abstract class BaseFragment<VM : BaseViewModel, DB : ViewDataBinding> : BaseVmDb
      */
     override fun initData() {}
 
+    override fun reload() {}
+
     /**
      * 创建LiveData观察者
      */

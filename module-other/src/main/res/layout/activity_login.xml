@@ -7,7 +7,7 @@
 
         <variable
             name="viewmodel"
-            type="com.ld.module_other.viewmodel.LoginRegisterViewModel" />
+            type="com.ld.module_other.viewmodel.state.LoginRegisterViewModel" />
 
         <variable
             name="view"

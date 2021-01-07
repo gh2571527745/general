@@ -1,4 +1,4 @@
-package com.ld.lib_base.constant
+package com.ld.lib_base.arouter
 
 class RouterActivityPath {
     object Login {

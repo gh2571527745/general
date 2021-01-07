@@ -5,4 +5,4 @@ package com.ld.lib_base.bean
  *  time   : 2020/12/29
  *  desc   :
  */
-class CollectBus(var id: Int, var collect: Boolean)
+class Event(var id: Int)

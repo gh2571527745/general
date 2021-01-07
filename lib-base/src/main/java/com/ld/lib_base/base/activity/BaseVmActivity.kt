@@ -9,9 +9,9 @@ import android.view.ViewGroup
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
+import com.kingja.loadsir.core.LoadService
 import com.ld.lib_base.base.viewmodel.BaseViewModel
 import com.ld.lib_base.ext.getVmClazz
-import com.ld.lib_base.network.StringConstant
 import com.ld.lib_base.network.network.manager.NetState
 import com.ld.lib_base.network.network.manager.NetworkStateManager
 import com.ld.lib_common.R
@@ -22,6 +22,7 @@ import com.ld.lib_common.R
  *  desc   :
  */
 abstract class BaseVmActivity<VM : BaseViewModel> : AppCompatActivity() {
+
     /**
      * 是否使用DataBinding 供自雷BaseVmDbActivity修改
      */
@@ -37,6 +38,8 @@ abstract class BaseVmActivity<VM : BaseViewModel> : AppCompatActivity() {
     protected lateinit var mTipView: View
     protected lateinit var mWindowManager: WindowManager
     protected lateinit var mLayoutParams: WindowManager.LayoutParams
+
+    protected lateinit var loadsir: LoadService<Any>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -58,6 +61,9 @@ abstract class BaseVmActivity<VM : BaseViewModel> : AppCompatActivity() {
         initTipView()
     }
 
+    /**
+     * 初始化tips
+     */
     private fun initTipView() {
         mTipView = layoutInflater.inflate(R.layout.layout_network_tip, null)
         mWindowManager = getSystemService(Context.WINDOW_SERVICE) as WindowManager

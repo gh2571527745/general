@@ -9,7 +9,7 @@ import com.alibaba.android.arouter.launcher.ARouter
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx
 import com.ld.general_framework.ui.activity.WelcomActivity
 import com.ld.lib_base.base.appContext
-import com.ld.lib_base.constant.RouterActivityPath
+import com.ld.lib_base.arouter.RouterActivityPath
 import com.ld.lib_widget.widget.util.SettingUtil
 import com.ld.module_home.fragment.HomeFragment
 import com.ld.module_other.fragment.OtherFragment

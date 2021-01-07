@@ -9,6 +9,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.ViewModelProvider
+import com.kingja.loadsir.core.LoadService
+import com.kingja.loadsir.core.LoadSir
 import com.ld.lib_base.base.viewmodel.BaseViewModel
 import com.ld.lib_base.ext.getVmClazz
 import com.ld.lib_base.network.network.manager.NetState
@@ -20,6 +22,7 @@ import com.ld.lib_base.network.network.manager.NetworkStateManager
  *  desc   :
  */
 abstract class BaseVmFragment<VM : BaseViewModel> : Fragment() {
+    protected lateinit var loadsir: LoadService<Any>
     private var isFirst: Boolean = true
     lateinit var mViewModel: VM
     lateinit var mActivity: AppCompatActivity
@@ -45,7 +48,23 @@ abstract class BaseVmFragment<VM : BaseViewModel> : Fragment() {
         initView(savedInstanceState)
         createObserver()
         initData()
+        initLoadService()
     }
+
+    /**
+     * 初始化loading
+     */
+    private fun initLoadService() {
+        loadsir = LoadSir.getDefault().register(this) {
+            //点击重试后的操作
+            reload()
+        }
+    }
+
+    /**
+     * 重新加载
+     */
+    abstract fun reload()
 
     override fun onResume() {
         super.onResume()

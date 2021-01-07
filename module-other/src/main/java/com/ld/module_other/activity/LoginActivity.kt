@@ -8,7 +8,7 @@ import com.blankj.utilcode.util.ToastUtils
 import com.ld.lib_base.base.activity.BaseActivity
 import com.ld.module_other.R
 import com.ld.module_other.databinding.ActivityLoginBinding
-import com.ld.module_other.viewmodel.LoginRegisterViewModel
+import com.ld.module_other.viewmodel.state.LoginRegisterViewModel
 
 /**
  *  author : ld
