@@ -55,6 +55,7 @@ dependencies {
     api 'com.kunminx.archi:unpeek-livedata:4.4.1-beta1'
     //navigation
     api 'androidx.navigation:navigation-runtime-ktx:2.3.1'
+    api 'androidx.navigation:navigation-fragment-ktx:2.3.1'
     //retrofit
     api "com.squareup.retrofit2:retrofit:2.9.0"
     api "com.squareup.retrofit2:converter-gson:2.9.0"
@@ -64,4 +65,8 @@ dependencies {
 
     //微信开源项目，替代SP
     api 'com.tencent:mmkv:1.0.22'
+    implementation project(path: ':lib-widget')
+    implementation project(path: ':lib-common')
+
+
 }

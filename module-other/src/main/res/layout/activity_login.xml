@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="utf-8"?><layout xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:bind="http://schemas.android.com/tools">
 
     <data>
@@ -13,7 +15,7 @@
 
         <variable
             name="click"
-            type="com.ld.module_other.fragment.LoginFragment.ProxyClick" />
+            type="com.ld.module_other.activity.LoginActivity.ProxyClick" />
 
     </data>
 
@@ -23,7 +25,7 @@
         android:background="@color/white"
         android:orientation="vertical">
 
-<!--        <include layout="@layout/include_toolbar" />-->
+        <include layout="@layout/include_toolbar" />
 
         <ScrollView
             android:layout_width="match_parent"
@@ -96,8 +98,8 @@
                         android:paddingRight="12dp"
                         android:text="@={viewmodel.password}"
                         android:textColor="@color/black"
-                        android:textSize="15dp"
-                        bind:showPwd="@{viewmodel.isShowPwd}" />
+                        android:textSize="15dp" />
+                    <!--                        bind:showPwd="@{viewmodel.isShowPwd}" -->
 
                     <CheckBox
                         android:layout_width="24dp"
@@ -105,8 +107,8 @@
                         android:layout_marginRight="6dp"
                         android:button="@drawable/selector_keyvisibily"
                         android:checked="false"
-                        android:visibility="@{viewmodel.password.length()>0?view.VISIBLE:view.GONE}"
-                        bind:checkChange="@{click.onCheckedChangeListener}" />
+                        android:visibility="@{viewmodel.password.length()>0?view.VISIBLE:view.GONE}" />
+                    <!--                        bind:checkChange="@{click.onCheckedChangeListener}" -->
                 </LinearLayout>
 
                 <TextView
@@ -117,8 +119,8 @@
                     android:layout_marginBottom="12dp"
                     android:background="@drawable/shap_button"
                     android:gravity="center"
+                    android:onClick="@{()-> click.login()}"
                     android:text="登录"
-                    bind:noRepeatClick="@{()-> click.login()}"
                     android:textColor="@color/white"
                     android:textSize="16dp" />
 

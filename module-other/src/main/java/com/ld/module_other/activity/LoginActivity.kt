@@ -1,13 +1,13 @@
-package com.ld.module_other.fragment
+package com.ld.module_other.activity
 
 import android.os.Bundle
 import android.widget.CompoundButton
 import com.blankj.utilcode.util.KeyboardUtils
 import com.blankj.utilcode.util.LogUtils
 import com.blankj.utilcode.util.ToastUtils
-import com.ld.lib_base.base.fragment.BaseFragment
+import com.ld.lib_base.base.activity.BaseActivity
 import com.ld.module_other.R
-import com.ld.module_other.databinding.FragmentLoginBinding
+import com.ld.module_other.databinding.ActivityLoginBinding
 import com.ld.module_other.viewmodel.LoginRegisterViewModel
 
 /**
@@ -15,8 +15,8 @@ import com.ld.module_other.viewmodel.LoginRegisterViewModel
  *  time   : 2021/01/05
  *  desc   :
  */
-class LoginFragment : BaseFragment<LoginRegisterViewModel, FragmentLoginBinding>() {
-    override fun layoutId(): Int = R.layout.fragment_login
+class LoginActivity : BaseActivity<LoginRegisterViewModel, ActivityLoginBinding>() {
+    override fun layoutId(): Int = R.layout.activity_login
 
     override fun initView(savedInstanceState: Bundle?) {
         LogUtils.e("LoginFragment")
@@ -39,7 +39,7 @@ class LoginFragment : BaseFragment<LoginRegisterViewModel, FragmentLoginBinding>
         }
 
         fun goRegister() {
-            KeyboardUtils.hideSoftInput(activity!!)
+            KeyboardUtils.hideSoftInput(this@LoginActivity)
 
         }
 

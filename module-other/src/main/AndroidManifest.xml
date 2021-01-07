@@ -3,7 +3,7 @@
     package="com.ld.module_other">
 
     <application>
-
+        <activity android:name=".activity.LoginActivity"/>
     </application>
 
 </manifest>

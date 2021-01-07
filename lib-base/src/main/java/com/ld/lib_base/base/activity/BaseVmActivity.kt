@@ -1,7 +1,12 @@
 package com.ld.lib_base.base.activity
 
+import android.content.Context
+import android.graphics.PixelFormat
 import android.os.Bundle
+import android.view.Gravity
 import android.view.View
+import android.view.ViewGroup
+import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.ld.lib_base.base.viewmodel.BaseViewModel
@@ -9,6 +14,7 @@ import com.ld.lib_base.ext.getVmClazz
 import com.ld.lib_base.network.StringConstant
 import com.ld.lib_base.network.network.manager.NetState
 import com.ld.lib_base.network.network.manager.NetworkStateManager
+import com.ld.lib_common.R
 
 /**
  *  author : ld
@@ -24,6 +30,13 @@ abstract class BaseVmActivity<VM : BaseViewModel> : AppCompatActivity() {
     lateinit var mViewModel: VM
 
     abstract fun layoutId(): Int
+
+    /**
+     * 提示的view
+     */
+    protected lateinit var mTipView: View
+    protected lateinit var mWindowManager: WindowManager
+    protected lateinit var mLayoutParams: WindowManager.LayoutParams
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,6 +55,22 @@ abstract class BaseVmActivity<VM : BaseViewModel> : AppCompatActivity() {
         NetworkStateManager.instance.mNetworkStateCallback.observeInActivity(this, {
             onNetworkStateChanged(it)
         })
+        initTipView()
+    }
+
+    private fun initTipView() {
+        mTipView = layoutInflater.inflate(R.layout.layout_network_tip, null)
+        mWindowManager = getSystemService(Context.WINDOW_SERVICE) as WindowManager
+        mLayoutParams = WindowManager.LayoutParams(
+            ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT,
+            WindowManager.LayoutParams.TYPE_APPLICATION,
+            WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE or WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE,
+            PixelFormat.TRANSLUCENT
+        )
+        mLayoutParams.gravity = Gravity.TOP
+        mLayoutParams.x = 0
+        mLayoutParams.y = 0
+        mLayoutParams.windowAnimations = R.style.anim_float_view
     }
 
     /**

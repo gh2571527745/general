@@ -5,7 +5,7 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
-import com.ld.lib_base.navigation.NavHostFragment
+import androidx.navigation.fragment.NavHostFragment
 
 /**
  *  author : ld

@@ -74,6 +74,7 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
     implementation rootProject.ext.dependencies.arouterApi
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     kapt rootProject.ext.dependencies.arouterCompiler
 
     implementation project(':lib-base')

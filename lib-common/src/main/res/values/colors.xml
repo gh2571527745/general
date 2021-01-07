@@ -15,4 +15,15 @@
     <color name="color_bg_9">#26000000</color>
     <color name="color_bg_10">#ffca4f</color>
     <color name="color_bg_11">#f0f3f8</color>
+
+
+    <!--字体颜色-->
+    <color name="color_text_1">#FFFFFF</color>
+    <color name="color_text_2">#a9a9a9</color>
+    <color name="color_text_3">#333333</color>
+    <color name="color_text_4">#000000</color>
+    <color name="color_text_5">#6c6c6c</color>
+    <color name="color_text_6">#ff9340</color>
+    <color name="color_text_7">#f40000</color>
+    <color name="color_text_8">#FF9340</color>
 </resources>
