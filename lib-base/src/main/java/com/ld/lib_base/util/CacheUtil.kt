@@ -2,6 +2,7 @@ package com.ld.lib_base.util
 
 import android.text.TextUtils
 import com.google.gson.Gson
+import com.ld.lib_base.bean.other.UserInfoBean
 import com.tencent.mmkv.MMKV
 
 /**
@@ -14,20 +15,20 @@ object CacheUtil {
     /**
      * 获取保存的账户信息
      */
-    fun getUser(): com.ld.lib_base.bean.UserInfo? {
+    fun getUser(): UserInfoBean? {
         val kv = MMKV.mmkvWithID("app")
         val userStr = kv.decodeString("user")
         return if (TextUtils.isEmpty(userStr)) {
             null
         } else {
-            Gson().fromJson(userStr, com.ld.lib_base.bean.UserInfo::class.java)
+            Gson().fromJson(userStr, UserInfoBean::class.java)
         }
     }
 
     /**
      * 设置账户信息
      */
-    fun setUser(userInfo: com.ld.lib_base.bean.UserInfo?) {
+    fun setUser(userInfo: UserInfoBean?) {
         val kv = MMKV.mmkvWithID("app")
         if (userInfo == null) {
             kv.encode("user", "")

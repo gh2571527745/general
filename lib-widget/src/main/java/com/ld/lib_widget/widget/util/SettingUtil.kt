@@ -14,7 +14,7 @@ import androidx.core.content.ContextCompat
 import com.blankj.utilcode.util.Utils
 import com.kingja.loadsir.core.LoadService
 import com.ld.lib_widget.R
-import com.ld.lib_widget.widget.loadCallBack.LoadingCallBack
+import com.ld.lib_widget.widget.loadCallBack.LoadingCallback
 import com.tencent.mmkv.MMKV
 import java.lang.reflect.InvocationTargetException
 import kotlin.math.roundToInt
@@ -179,7 +179,7 @@ object SettingUtil {
      * 设置loading的颜色 加载布局
      */
     fun setLoadingColor(color:Int,loadsir: LoadService<Any>) {
-        loadsir.setCallBack(LoadingCallBack::class.java) { _, view ->
+        loadsir.setCallBack(LoadingCallback::class.java) { _, view ->
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                 view.findViewById<ProgressBar>(R.id.loading_progress).indeterminateTintMode = PorterDuff.Mode.SRC_ATOP
                 view.findViewById<ProgressBar>(R.id.loading_progress).indeterminateTintList =

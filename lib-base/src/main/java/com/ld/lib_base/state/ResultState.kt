@@ -38,6 +38,10 @@ fun <T> MutableLiveData<ResultState<T>>.paresResult(result: BaseResponse<T>) {
     }
 }
 
+fun <T> MutableLiveData<ResultState<T>>.paresLoading(str: String) {
+    value = ResultState.onAppLoading(str)
+}
+
 /**
  * 不处理返回值 直接返回请求结果
  * @param result 请求结果

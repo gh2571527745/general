@@ -1,22 +1,16 @@
-package com.ld.general_framework
+package com.ld.module_other
 
 import com.ld.lib_base.base.BaseApp
 import com.ld.lib_base.base.application.ModuleLifecycleConfig
 
 /**
  *  author : ld
- *  time   : 2020/12/29
+ *  time   : 2021/01/08
  *  desc   :
  */
-class App : BaseApp() {
-    companion object {
-        lateinit var instance: App
-    }
-
+class otherApplication : BaseApp() {
     override fun onCreate() {
         super.onCreate()
-        instance = this
         ModuleLifecycleConfig.instance.initModuleAhead(this)
     }
-
 }

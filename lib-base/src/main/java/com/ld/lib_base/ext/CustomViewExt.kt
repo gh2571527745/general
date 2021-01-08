@@ -5,7 +5,7 @@ import android.widget.TextView
 import com.kingja.loadsir.core.LoadService
 import com.kingja.loadsir.core.LoadSir
 import com.ld.lib_widget.R
-import com.ld.lib_widget.widget.loadCallBack.LoadingCallBack
+import com.ld.lib_widget.widget.loadCallBack.LoadingCallback
 import me.hgj.jetpackmvvm.demo.app.weight.loadCallBack.EmptyCallback
 import me.hgj.jetpackmvvm.demo.app.weight.loadCallBack.ErrorCallback
 
@@ -52,5 +52,5 @@ fun LoadService<*>.showEmpty() {
  * 设置加载中
  */
 fun LoadService<*>.showLoading() {
-    this.showCallback(LoadingCallBack::class.java)
+    this.showCallback(LoadingCallback::class.java)
 }

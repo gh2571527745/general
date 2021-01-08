@@ -22,7 +22,6 @@ import com.ld.lib_base.network.network.manager.NetworkStateManager
  *  desc   :
  */
 abstract class BaseVmFragment<VM : BaseViewModel> : Fragment() {
-    protected lateinit var loadsir: LoadService<Any>
     private var isFirst: Boolean = true
     lateinit var mViewModel: VM
     lateinit var mActivity: AppCompatActivity
@@ -48,17 +47,6 @@ abstract class BaseVmFragment<VM : BaseViewModel> : Fragment() {
         initView(savedInstanceState)
         createObserver()
         initData()
-        initLoadService()
-    }
-
-    /**
-     * 初始化loading
-     */
-    private fun initLoadService() {
-        loadsir = LoadSir.getDefault().register(this) {
-            //点击重试后的操作
-            reload()
-        }
     }
 
     /**

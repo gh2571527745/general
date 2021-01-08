@@ -2,6 +2,7 @@ package com.ld.lib_base.event
 
 import com.kunminx.architecture.ui.callback.UnPeekLiveData
 import com.ld.lib_base.base.viewmodel.BaseViewModel
+import com.ld.lib_base.bean.other.UserInfoBean
 import com.ld.lib_base.util.CacheUtil
 
 /**
@@ -12,7 +13,7 @@ import com.ld.lib_base.util.CacheUtil
  */
 class AppViewModel : BaseViewModel() {
     //app的账户信息
-    var userinfo = UnPeekLiveData<UserInfo>()
+    var userinfo = UnPeekLiveData<UserInfoBean>()
 
     init {
         //默认保存的账户信息，没有登录过则为null

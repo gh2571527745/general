@@ -10,7 +10,7 @@ import com.ld.lib_widget.R
  *  time   : 2020/12/29
  *  desc   :
  */
-class LoadingCallBack : Callback() {
+class LoadingCallback : Callback() {
     override fun onCreateView(): Int {
         return R.layout.layout_loading
     }

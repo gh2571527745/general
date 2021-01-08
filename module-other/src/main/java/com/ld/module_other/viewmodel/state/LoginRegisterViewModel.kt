@@ -12,7 +12,7 @@ import me.hgj.jetpackmvvm.callback.livedata.StringLiveData
  */
 class LoginRegisterViewModel : BaseViewModel() {
     //用户名
-    var username = StringLiveData()
+    var username = StringObservableField()
 
     //密码
     var password = StringObservableField()

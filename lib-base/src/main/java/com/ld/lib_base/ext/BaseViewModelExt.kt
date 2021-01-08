@@ -2,17 +2,23 @@ package com.ld.lib_base.ext
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
+import com.blankj.utilcode.util.LogUtils
 import com.kingja.loadsir.core.LoadService
+import com.ld.lib_base.base.activity.BaseVmActivity
+import com.ld.lib_base.base.fragment.BaseVmFragment
 import com.ld.lib_base.base.viewmodel.BaseViewModel
 import com.ld.lib_base.ext.util.logd
 import com.ld.lib_base.ext.util.loge
 import com.ld.lib_base.constant.Constant
+import com.ld.lib_base.network.network.AppException
 import com.ld.lib_base.network.network.BaseResponse
 import com.ld.lib_base.state.ResultState
 import com.ld.lib_base.state.paresException
+import com.ld.lib_base.state.paresLoading
 import com.ld.lib_base.state.paresResult
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
 
 /**
  *  author : ld
@@ -33,18 +39,18 @@ fun <T> BaseViewModel.request(
     isShowDialog: Boolean = false,
     loadingMessage: String = Constant.STRING_NET_LOADING
 ): Job {
-
     return viewModelScope.launch {
         kotlin.runCatching {
-            if (isShowDialog) loadsir.showLoading()
+            LogUtils.e("request")
+            if (isShowDialog) resultState.paresLoading(loadingMessage)
             //请求体
             block()
         }.onSuccess {
-            loadsir.showSuccess()
+            LogUtils.e("Success")
             resultState.paresResult(it)
         }.onFailure {
+            LogUtils.e("onFailure")
             it.message?.logd()
-            loadsir.showError(loadingMessage)
             resultState.paresException(it)
         }
     }
@@ -61,22 +67,78 @@ fun <T> BaseViewModel.request(
 fun <T> BaseViewModel.requestNoCheck(
     block: suspend () -> T,
     resultState: MutableLiveData<ResultState<T>>,
-    loadsir: LoadService<Any>,
     isShowDialog: Boolean = false,
     loadingMessage: String = Constant.STRING_NET_LOADING
 ): Job {
     return viewModelScope.launch {
         runCatching {
-            if (isShowDialog) loadsir.showLoading()
+            LogUtils.e("request")
+            if (isShowDialog) resultState.paresLoading(loadingMessage)
             //请求体
             block()
         }.onSuccess {
-            loadsir.showSuccess()
+            LogUtils.e("Success")
             resultState.paresResult(it)
         }.onFailure {
+            LogUtils.e("onFailure")
             it.message?.loge()
-            loadsir.showError(loadingMessage)
             resultState.paresException(it)
+        }
+    }
+}
+
+
+/**
+ * 显示页面状态，这里有个技巧，成功回调在第一个，其后两个带默认值的回调可省
+ * @param resultState 接口返回值
+ * @param onLoading 加载中
+ * @param onSuccess 成功回调
+ * @param onError 失败回调
+ *
+ */
+fun <T> BaseVmFragment<*>.parseState(
+    resultState: ResultState<T>,
+    onLoading: ((String) -> Unit)? = null,
+    onSuccess: (T) -> Unit,
+    onError: ((AppException) -> Unit)? = null
+) {
+    when (resultState) {
+        is ResultState.Loading -> {
+            onLoading?.run { this(resultState.loadingMessage) }
+        }
+        is ResultState.Success -> {
+            onSuccess(resultState.data)
+        }
+        is ResultState.Error -> {
+            onError?.run { this(resultState.error) }
+        }
+    }
+}
+
+
+/**
+ * 显示页面状态，这里有个技巧，成功回调在第一个，其后两个带默认值的回调可省
+ * @param resultState 接口返回值
+ * @param onLoading 加载中
+ * @param onSuccess 成功回调
+ * @param onError 失败回调
+ *
+ */
+fun <T> BaseVmActivity<*>.parseState(
+    resultState: ResultState<T>,
+    onLoading: ((String) -> Unit)? = null,
+    onSuccess: (T) -> Unit,
+    onError: ((AppException) -> Unit)? = null
+) {
+    when (resultState) {
+        is ResultState.Loading -> {
+            onLoading?.run { this(resultState.loadingMessage) }
+        }
+        is ResultState.Success -> {
+            onSuccess(resultState.data)
+        }
+        is ResultState.Error -> {
+            onError?.run { this(resultState.error) }
         }
     }
 }

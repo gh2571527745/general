@@ -10,10 +10,12 @@ enum class Error(private val code: Int, private val err: String) {
      * 未知错误
      */
     UNKNOWN(1000, "请求失败，请稍后再试"),
+
     /**
      * 解析错误
      */
     PARSE_ERROR(1001, "解析错误，请稍后再试"),
+
     /**
      * 网络错误
      */

@@ -2,28 +2,26 @@ package com.ld.module_other.fragment
 
 import android.content.Intent
 import android.os.Bundle
+import androidx.lifecycle.Observer
 import com.blankj.utilcode.util.ActivityUtils
-import com.blankj.utilcode.util.KeyboardUtils
 import com.blankj.utilcode.util.LogUtils
 import com.ld.lib_base.base.fragment.BaseFragment
-import com.ld.lib_base.base.viewmodel.BaseViewModel
-import com.ld.lib_base.ext.nav
-import com.ld.lib_base.ext.navigateAction
 import com.ld.module_other.R
 import com.ld.module_other.activity.LoginActivity
 import com.ld.module_other.databinding.FragmentOtherBinding
-import kotlinx.android.synthetic.main.fragment_other.*
+import com.ld.module_other.viewmodel.state.OtherViewModel
 
 /**
  *  author : ld
  *  time   : 2021/01/05
  *  desc   :
  */
-class OtherFragment : BaseFragment<BaseViewModel, FragmentOtherBinding>() {
+class OtherFragment : BaseFragment<OtherViewModel, FragmentOtherBinding>() {
     override fun layoutId(): Int = R.layout.fragment_other
 
     override fun initView(savedInstanceState: Bundle?) {
         LogUtils.e("OtherFragment")
+        mDataBinding.vm = mViewModel
         mDataBinding.click = ProxyClick()
     }
 
@@ -35,6 +33,18 @@ class OtherFragment : BaseFragment<BaseViewModel, FragmentOtherBinding>() {
         fun goLogin() {
             LogUtils.e("登录")
             ActivityUtils.startActivity(Intent(context, LoginActivity::class.java))
+        }
+    }
+
+    override fun createObserver() {
+        appViewModel.run {
+            userinfo.observeInFragment(this@OtherFragment, Observer {
+                if (it != null) {
+                    mViewModel.name.set(it.nickname)
+                } else {
+                    mViewModel.name.set("请先登录")
+                }
+            })
         }
     }
 }

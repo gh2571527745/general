@@ -24,8 +24,6 @@ abstract class BaseActivity<VM : BaseViewModel, DB : ViewDataBinding> : BaseVmDb
 
     override fun createObserver() {}
 
-    override fun reload() {}
-
     abstract override fun initView(savedInstanceState: Bundle?)
 
     override fun onNetworkStateChanged(it: NetState) {
