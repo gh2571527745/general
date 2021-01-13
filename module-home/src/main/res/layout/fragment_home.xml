@@ -4,6 +4,9 @@
 
     <data>
 
+        <variable
+            name="home"
+            type="com.ld.module_home.viewmodel.state.HomeViewModel" />
     </data>
 
     <LinearLayout
@@ -11,44 +14,9 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/qb_px_80"
-            android:background="@color/color_bg_7"
-            android:theme="@style/AppTheme.AppBarOverlay"
-            app:layout_scrollFlags="scroll|enterAlways"
-            app:popupTheme="@style/AppTheme.PopupOverlay">
+        <include layout="@layout/include_toolbar" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="home"
-                android:textColor="@color/colorAccent"></TextView>
-        </androidx.appcompat.widget.Toolbar>
+        <include layout="@layout/include_list" />
 
-        <androidx.coordinatorlayout.widget.CoordinatorLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/windowBackground"
-            android:orientation="vertical">
-
-            <include layout="@layout/include_recyclerview" />
-
-            <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:id="@+id/floatbtn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom|end"
-                android:layout_marginRight="@dimen/qb_px_24"
-                android:layout_marginBottom="@dimen/qb_px_48"
-                android:scaleType="center"
-                android:src="@drawable/fab_up"
-                android:visibility="invisible"
-                app:elevation="5dp"
-                app:fabSize="mini"
-                app:layout_behavior="com.ld.lib_widget.widget.recyclerview.FatScrollAwareFABBehavior" />
-
-        </androidx.coordinatorlayout.widget.CoordinatorLayout>
     </LinearLayout>
 </layout>

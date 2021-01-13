@@ -28,6 +28,6 @@ class RequestLoginRegisterViewModel : BaseViewModel() {
         //方式1
 //        request({ otherApi().login(username,password)},loginResult,true)
         //方式2
-        requestNoCheck({ otherApi().login(username, password) }, loginResult2, false)
+        requestNoCheck({ otherApi().login(username, password) }, loginResult2, true)
     }
 }

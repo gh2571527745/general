@@ -6,10 +6,10 @@ import com.franmontiel.persistentcookiejar.persistence.SharedPrefsCookiePersisto
 import com.google.gson.GsonBuilder
 import com.ld.lib_base.base.appContext
 import com.ld.lib_base.network.network.interceptor.HeadInterceptor
-import com.ld.lib_base.network.network.interceptor.logging.LogInterceptor
 import me.hgj.jetpackmvvm.network.interceptor.CacheInterceptor
 import okhttp3.Cache
 import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.io.File
@@ -34,6 +34,10 @@ class NetworkApi : BaseNetworkApi() {
      */
     override fun setHttpClientBuilder(builder: OkHttpClient.Builder): OkHttpClient.Builder {
         builder.apply {
+
+            val loggingInterceptor = HttpLoggingInterceptor()
+            loggingInterceptor.level = HttpLoggingInterceptor.Level.BODY
+
             //设置缓存配置 缓存最大10M
             cache(Cache(File(appContext.cacheDir, "cxk_cache"), 10 * 1024 * 1024))
             //添加Cookies自动持久化
@@ -43,7 +47,7 @@ class NetworkApi : BaseNetworkApi() {
             //添加缓存拦截器 可传入缓存天数，不传默认7天
             addInterceptor(CacheInterceptor())
             // 日志拦截器
-            addInterceptor(LogInterceptor())
+            addInterceptor(loggingInterceptor)
             //超时时间 连接、读、写
             connectTimeout(10, TimeUnit.SECONDS)
             readTimeout(5, TimeUnit.SECONDS)

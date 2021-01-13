@@ -1,7 +1,9 @@
 package com.ld.general_framework.ui.fragment
 
 import android.os.Bundle
+import androidx.lifecycle.Observer
 import com.blankj.utilcode.util.LogUtils
+import com.blankj.utilcode.util.ToastUtils
 import com.ld.general_framework.R
 import com.ld.lib_base.base.fragment.BaseFragment
 import com.ld.general_framework.databinding.FragmentMainBinding
@@ -29,6 +31,17 @@ class MainFragment : BaseFragment<BaseViewModel, FragmentMainBinding>() {
             }
         }
         mainBottom.interceptLongClick(R.id.menu_main,R.id.menu_other)
+    }
+
+    override fun createObserver() {
+//        appViewModel.run {
+//            userinfo.observeInFragment(this@MainFragment, Observer {
+//                if (it != null) {
+//                    ToastUtils.showShort(userinfo.value?.username)
+//                } else {
+//                }
+//            })
+//        }
     }
 
 }

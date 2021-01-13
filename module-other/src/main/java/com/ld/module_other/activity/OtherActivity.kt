@@ -17,13 +17,13 @@ class OtherActivity : BaseActivity<BaseViewModel, ActivityOtherBinding>() {
     }
 
     override fun createObserver() {
-        appViewModel.run {
-            userinfo.observeInActivity(this@OtherActivity, Observer {
-                if (it != null) {
-                    ToastUtils.showShort(userinfo.value?.username)
-                } else {
-                }
-            })
-        }
+//        appViewModel.run {
+//            userinfo.observeInActivity(this@OtherActivity, Observer {
+//                if (it != null) {
+//                    ToastUtils.showShort(userinfo.value?.username)
+//                } else {
+//                }
+//            })
+//        }
     }
 }

@@ -65,6 +65,14 @@ dependencies {
 
     api 'androidx.multidex:multidex:2.0.1'
 
+    //BaseAdapter
+    api 'com.github.CymChad:BaseRecyclerViewAdapterHelper:3.0.4'
+
+    //下拉刷新-加载更多
+    api 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.2'
+
+    api 'com.squareup.okhttp3:logging-interceptor:3.10.0'
+
     api rootProject.ext.dependencies.arouterApi
     kapt rootProject.ext.dependencies.arouterCompiler
 }
