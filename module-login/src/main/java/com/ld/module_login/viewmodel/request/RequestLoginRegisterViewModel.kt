@@ -1,15 +1,12 @@
-package com.ld.module_other.viewmodel.request
+package com.ld.module_login.viewmodel.request
 
 import androidx.lifecycle.MutableLiveData
-import com.ld.lib_base.api.OtherApi
-import com.ld.lib_base.arouter.otherApi
+import com.ld.lib_base.arouter.loginApi
 import com.ld.lib_base.base.viewmodel.BaseViewModel
-import com.ld.lib_base.ext.request
 import com.ld.lib_base.state.ResultState
-import com.ld.lib_base.bean.other.UserInfoBean
+import com.ld.lib_base.bean.login.UserInfoBean
 import com.ld.lib_base.ext.requestNoCheck
 import com.ld.lib_base.network.network.ApiResponse
-import com.ld.lib_base.network.network.NetworkApi
 
 /**
  *  author : ld
@@ -28,6 +25,6 @@ class RequestLoginRegisterViewModel : BaseViewModel() {
         //方式1
 //        request({ otherApi().login(username,password)},loginResult,true)
         //方式2
-        requestNoCheck({ otherApi().login(username, password) }, loginResult2, true)
+        requestNoCheck({ loginApi().login(username, password) }, loginResult2, true)
     }
 }

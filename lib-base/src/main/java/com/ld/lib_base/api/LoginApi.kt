@@ -8,11 +8,10 @@ import retrofit2.http.POST
 
 /**
  *  author : ld
- *  time   : 2021/01/07
+ *  time   : 2021/01/14
  *  desc   :
  */
-interface OtherApi {
-
+interface LoginApi {
     companion object {
         const val SERVER_URL = "https://wanandroid.com/"
     }
@@ -24,6 +23,6 @@ interface OtherApi {
     @POST("user/login")
     suspend fun login(
         @Field("username") username: String,
-        @Field("password") pwd: String
+        @Field("password") password: String
     ): ApiResponse<UserInfoBean>
 }

@@ -1,18 +1,13 @@
 package com.ld.module_other.fragment
 
-import android.content.Intent
 import android.os.Bundle
-import androidx.annotation.CheckResult
 import androidx.lifecycle.Observer
-import androidx.lifecycle.observe
-import com.blankj.utilcode.util.ActivityUtils
 import com.blankj.utilcode.util.LogUtils
 import com.ld.lib_aop.checklogin.annotation.CheckLogin
 import com.ld.lib_aop.singleclick.annotation.SingleClick
 import com.ld.lib_base.base.fragment.BaseFragment
 import com.ld.lib_base.ext.notNull
 import com.ld.module_other.R
-import com.ld.module_other.activity.LoginActivity
 import com.ld.module_other.databinding.FragmentOtherBinding
 import com.ld.module_other.viewmodel.state.OtherViewModel
 
@@ -30,7 +25,7 @@ class OtherFragment : BaseFragment<OtherViewModel, FragmentOtherBinding>() {
         mDataBinding.click = ProxyClick()
 
         appViewModel.userinfo.value?.let {
-            mViewModel.name.set(if (it.nickname.isNotEmpty())it.username else "请先登录")
+            mViewModel.name.set(if (it.nickname.isNotEmpty()) it.username else "请先登录")
         }
     }
 
@@ -39,11 +34,11 @@ class OtherFragment : BaseFragment<OtherViewModel, FragmentOtherBinding>() {
     }
 
     inner class ProxyClick {
-//        @CheckLogin
 
-        @SingleClick
+//        @SingleClick
+        @CheckLogin
         fun goLoginClick() {
-            LogUtils.e("登录")
+            LogUtils.e("点击")
 //            ActivityUtils.startActivity(Intent(context, LoginActivity::class.java))
         }
     }
@@ -53,7 +48,7 @@ class OtherFragment : BaseFragment<OtherViewModel, FragmentOtherBinding>() {
             userinfo.observeInFragment(this@OtherFragment, Observer {
                 it.notNull({
                     mViewModel.name.set(it.nickname)
-                },{
+                }, {
                     mViewModel.name.set("请先登录")
                 })
             })

@@ -18,6 +18,7 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
         multiDexEnabled true
+
     }
 
     dataBinding {
@@ -54,7 +55,6 @@ android {
         }
     }
 
-
 }
 
 dependencies {
@@ -72,10 +72,12 @@ dependencies {
     implementation project(':lib-base')
     implementation project(':lib-widget')
     implementation project(':lib-common')
+    implementation project(':lib-aop')
 
     if (!isRunModule.toBoolean()) {
         implementation project(':module-home')
         implementation project(':module-other')
+        implementation project(':module-login')
     }
 }
 aspectjx {

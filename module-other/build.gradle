@@ -14,18 +14,14 @@ android {
 
     defaultConfig {
         if (isRunModule.toBoolean()) {
-            applicationId "com.ld.module_home"
+            applicationId "com.ld.module_other"
         }
-        minSdkVersion 21
-        targetSdkVersion 30
-        versionCode 1
-        versionName "1.0"
 
-        kapt {
-            arguments {
-                arg("AROUTER_MODULE_NAME", project.getName())
-            }
-        }
+        minSdkVersion rootProject.ext.android.minSdkVersion
+        targetSdkVersion rootProject.ext.android.targetSdkVersion
+        versionCode rootProject.ext.android.versionCode
+        versionName rootProject.ext.android.versionName
+
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -69,19 +65,28 @@ android {
         }
     }
 
+    kapt {
+        arguments {
+            arg("AROUTER_MODULE_NAME", project.getName())
+        }
+    }
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-
-    implementation rootProject.ext.dependencies.arouterApi
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+
+    api rootProject.ext.dependencies.arouterApi
     kapt rootProject.ext.dependencies.arouterCompiler
 
     implementation project(':lib-base')
     implementation project(':lib-widget')
     implementation project(':lib-common')
     implementation project(':lib-aop')
+
+//    if (isRunModule.toBoolean()) {
+//        implementation project(':module-login')
+//    }
 }
 aspectjx {
     include('com.ld')

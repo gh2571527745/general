@@ -1,4 +1,4 @@
-package com.ld.lib_base.bean.other
+package com.ld.lib_base.bean.login
 
 import android.annotation.SuppressLint
 import android.os.Parcelable

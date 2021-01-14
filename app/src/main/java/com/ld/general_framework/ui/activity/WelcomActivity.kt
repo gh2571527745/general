@@ -16,7 +16,9 @@ import com.ld.lib_base.util.CacheUtil
  *  desc   :
  */
 class WelcomActivity : BaseActivity<BaseViewModel, ActivityWelcomeBinding>() {
-    override fun layoutId(): Int = R.layout.activity_welcome
+    override fun layoutId(): Int {
+        return R.layout.activity_welcome
+    }
 
     override fun initView(savedInstanceState: Bundle?) {
         LogUtils.e("initView")
@@ -45,6 +47,7 @@ class WelcomActivity : BaseActivity<BaseViewModel, ActivityWelcomeBinding>() {
             overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
         }
     }
+
 
 
 }

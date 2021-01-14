@@ -2,8 +2,10 @@ package com.ld.lib_aop.checklogin;
 
 import android.util.Log;
 
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.ld.lib_aop.checklogin.annotation.CheckLogin;
-import com.ld.lib_base.bean.other.UserInfoBean;
+import com.ld.lib_base.arouter.RouterActivityPath;
+import com.ld.lib_base.bean.login.UserInfoBean;
 import com.ld.lib_base.util.CacheUtil;
 
 import org.aspectj.lang.ProceedingJoinPoint;
@@ -39,8 +41,8 @@ public class CheckLoginAspect {
         Log.i(Tag, "check login");
         UserInfoBean user = CacheUtil.INSTANCE.getUser();
         if (user == null) {
-//            user.getInstance().build("/module_login/Login").navigation();
             Log.i(Tag, "login fail");
+            ARouter.getInstance().build(RouterActivityPath.Login.PAGER_LOGIN).navigation();
             return null;
         } else {
             Log.i(Tag, "login success");

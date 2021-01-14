@@ -2,7 +2,7 @@ package com.ld.lib_base.event
 
 import com.kunminx.architecture.ui.callback.UnPeekLiveData
 import com.ld.lib_base.base.viewmodel.BaseViewModel
-import com.ld.lib_base.bean.other.UserInfoBean
+import com.ld.lib_base.bean.login.UserInfoBean
 import com.ld.lib_base.util.CacheUtil
 
 /**

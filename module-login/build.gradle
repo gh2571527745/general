@@ -1,4 +1,8 @@
-apply plugin: 'com.android.library'
+if (isRunModule.toBoolean()) {
+    apply plugin: 'com.android.application'
+} else {
+    apply plugin: 'com.android.library'
+}
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
@@ -8,12 +12,20 @@ android {
     buildToolsVersion "30.0.2"
 
     defaultConfig {
+        if (isRunModule.toBoolean()) {
+            applicationId "com.ld.module_login"
+        }
+
         minSdkVersion rootProject.ext.android.minSdkVersion
         targetSdkVersion rootProject.ext.android.targetSdkVersion
+        versionCode rootProject.ext.android.versionCode
+        versionName rootProject.ext.android.versionName
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles 'consumer-rules.pro'
+
     }
+
     dataBinding {
         enabled = true
     }
@@ -41,20 +53,34 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+    sourceSets {
+        main {
+            // 1.单独调试与集成调试时使用不同的 AndroidManifest.xml 文件
+            // 我们还可以根据不同工程配置不同的 Java 源代码、不同的 resource 资源文件等的
+            if (isRunModule.toBoolean()) {
+                manifest.srcFile 'src/main/manifest/AndroidManifest.xml'
+            } else {
+                manifest.srcFile 'src/main/AndroidManifest.xml'
+            }
+        }
+    }
 
     kapt {
         arguments {
             arg("AROUTER_MODULE_NAME", project.getName())
         }
     }
+
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    api "org.aspectj:aspectjrt:1.9.5"
-    implementation project(':lib-base')
-
     implementation rootProject.ext.dependencies.arouterApi
     kapt rootProject.ext.dependencies.arouterCompiler
+
+    implementation project(':lib-base')
+    implementation project(':lib-widget')
+    implementation project(':lib-common')
+//    implementation project(':lib-aop')
 }

@@ -15,16 +15,11 @@ android {
         if (isRunModule.toBoolean()) {
             applicationId "com.ld.module_home"
         }
+
         minSdkVersion rootProject.ext.android.minSdkVersion
         targetSdkVersion rootProject.ext.android.targetSdkVersion
         versionCode rootProject.ext.android.versionCode
         versionName rootProject.ext.android.versionName
-
-        kapt {
-            arguments {
-                arg("AROUTER_MODULE_NAME", project.getName())
-            }
-        }
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -68,6 +63,12 @@ android {
         }
     }
 
+    kapt {
+        arguments {
+            arg("AROUTER_MODULE_NAME", project.getName())
+        }
+    }
+
 }
 
 dependencies {
@@ -79,4 +80,5 @@ dependencies {
     implementation project(':lib-base')
     implementation project(':lib-widget')
     implementation project(':lib-common')
+//    implementation project(':lib-aop')
 }

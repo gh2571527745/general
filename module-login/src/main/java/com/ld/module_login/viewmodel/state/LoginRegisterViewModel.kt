@@ -1,4 +1,4 @@
-package com.ld.module_other.viewmodel.state
+package com.ld.module_login.viewmodel.state
 
 import com.ld.lib_base.base.viewmodel.BaseViewModel
 import me.hgj.jetpackmvvm.callback.databind.BooleanObservableField

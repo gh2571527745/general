@@ -1,5 +1,6 @@
 package com.ld.general_framework.ext
 
+import android.app.Activity
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
@@ -49,6 +50,11 @@ fun ViewPager2.initMain(fragment: Fragment): ViewPager2 {
 fun WelcomActivity.lanchMain() {
     ARouter.getInstance().build(RouterActivityPath.Main.PAGE_MAIN).navigation()
 }
+
+fun Activity.lanchLogin() {
+    ARouter.getInstance().build(RouterActivityPath.Login.PAGER_LOGIN).navigation()
+}
+
 
 /**
  * ViewPager初始化

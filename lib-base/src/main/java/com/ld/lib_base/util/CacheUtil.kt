@@ -2,7 +2,7 @@ package com.ld.lib_base.util
 
 import android.text.TextUtils
 import com.google.gson.Gson
-import com.ld.lib_base.bean.other.UserInfoBean
+import com.ld.lib_base.bean.login.UserInfoBean
 import com.tencent.mmkv.MMKV
 
 /**

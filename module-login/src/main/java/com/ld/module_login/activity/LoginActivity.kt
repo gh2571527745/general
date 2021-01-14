@@ -1,22 +1,24 @@
-package com.ld.module_other.activity
+package com.ld.module_login.activity
 
 import android.os.Bundle
 import android.text.InputType
 import androidx.activity.viewModels
 import androidx.lifecycle.Observer
+import com.alibaba.android.arouter.facade.annotation.Route
 import com.blankj.utilcode.util.KeyboardUtils
 import com.blankj.utilcode.util.LogUtils
 import com.blankj.utilcode.util.ToastUtils
+import com.ld.lib_base.arouter.RouterActivityPath
 import com.ld.lib_base.base.activity.BaseActivity
 import com.ld.lib_base.ext.loadServiceInit
 import com.ld.lib_base.ext.parseState
 import com.ld.lib_base.ext.showError
 import com.ld.lib_base.ext.showLoading
 import com.ld.lib_base.util.CacheUtil
-import com.ld.module_other.R
-import com.ld.module_other.databinding.ActivityLoginBinding
-import com.ld.module_other.viewmodel.request.RequestLoginRegisterViewModel
-import com.ld.module_other.viewmodel.state.LoginRegisterViewModel
+import com.ld.module_login.R
+import com.ld.module_login.databinding.ActivityLoginBinding
+import com.ld.module_login.viewmodel.request.RequestLoginRegisterViewModel
+import com.ld.module_login.viewmodel.state.LoginRegisterViewModel
 import kotlinx.android.synthetic.main.activity_login.*
 
 
@@ -25,6 +27,7 @@ import kotlinx.android.synthetic.main.activity_login.*
  *  time   : 2021/01/05
  *  desc   :
  */
+@Route(path = RouterActivityPath.Login.PAGER_LOGIN)
 class LoginActivity : BaseActivity<LoginRegisterViewModel, ActivityLoginBinding>() {
     override fun layoutId(): Int = R.layout.activity_login
 
