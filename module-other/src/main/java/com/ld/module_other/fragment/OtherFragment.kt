@@ -2,10 +2,13 @@ package com.ld.module_other.fragment
 
 import android.content.Intent
 import android.os.Bundle
+import androidx.annotation.CheckResult
 import androidx.lifecycle.Observer
 import androidx.lifecycle.observe
 import com.blankj.utilcode.util.ActivityUtils
 import com.blankj.utilcode.util.LogUtils
+import com.ld.lib_aop.checklogin.annotation.CheckLogin
+import com.ld.lib_aop.singleclick.annotation.SingleClick
 import com.ld.lib_base.base.fragment.BaseFragment
 import com.ld.lib_base.ext.notNull
 import com.ld.module_other.R
@@ -36,9 +39,12 @@ class OtherFragment : BaseFragment<OtherViewModel, FragmentOtherBinding>() {
     }
 
     inner class ProxyClick {
-        fun goLogin() {
+//        @CheckLogin
+
+        @SingleClick
+        fun goLoginClick() {
             LogUtils.e("登录")
-            ActivityUtils.startActivity(Intent(context, LoginActivity::class.java))
+//            ActivityUtils.startActivity(Intent(context, LoginActivity::class.java))
         }
     }
 

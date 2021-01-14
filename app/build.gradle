@@ -2,6 +2,7 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
+apply plugin: 'android-aspectjx'
 
 android {
     compileSdkVersion 30
@@ -76,4 +77,8 @@ dependencies {
         implementation project(':module-home')
         implementation project(':module-other')
     }
+}
+aspectjx {
+    include 'com.ld'
+//    exclude 'androidx','com.google','com.squareup','com.alipay','org.apache'
 }

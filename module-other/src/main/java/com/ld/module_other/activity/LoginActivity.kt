@@ -42,16 +42,16 @@ class LoginActivity : BaseActivity<LoginRegisterViewModel, ActivityLoginBinding>
         mDatabing.viewmodel = mViewModel
         mDatabing.click = ProxyClick()
 
-        cb_login.setOnCheckedChangeListener { buttonView, isChecked ->
-            mViewModel.isShowPwd.set(isChecked)
-            if (isChecked) {
-                //选择状态 显示明文
-                et_login.setInputType(InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD)
-            } else {
-                //默认状态显示密码--设置文本 要一起写才能起作用
-                et_login.setInputType(InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD)
-            }
-        }
+//        cb_login.setOnCheckedChangeListener { buttonView, isChecked ->
+//            mViewModel.isShowPwd.set(isChecked)
+//            if (isChecked) {
+//                //选择状态 显示明文
+//                et_login.setInputType(InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD)
+//            } else {
+//                //默认状态显示密码--设置文本 要一起写才能起作用
+//                et_login.setInputType(InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD)
+//            }
+//        }
     }
 
     override fun createObserver() {

@@ -6,6 +6,7 @@ if (isRunModule.toBoolean()) {
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
+apply plugin: 'android-aspectjx'
 
 android {
     compileSdkVersion 30
@@ -80,4 +81,10 @@ dependencies {
     implementation project(':lib-base')
     implementation project(':lib-widget')
     implementation project(':lib-common')
+    implementation project(':lib-aop')
+}
+aspectjx {
+    include('com.ld')
+
+//    exclude 'androidx','com.google','com.squareup','com.alipay','org.apache'
 }

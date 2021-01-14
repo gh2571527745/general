@@ -32,7 +32,7 @@
                 android:id="@+id/tv_fragment_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:onClick="@{()->click.goLogin()}"
+                android:onClick="@{()->click.goLoginClick()}"
                 android:text="@{vm.name}"
                 android:textColor="@color/colorAccent"></TextView>
         </androidx.appcompat.widget.Toolbar>
