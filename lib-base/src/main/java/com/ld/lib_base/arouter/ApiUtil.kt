@@ -1,8 +1,8 @@
 package com.ld.lib_base.arouter
 
-import com.ld.lib_base.api.HomeApi
-import com.ld.lib_base.api.LoginApi
-import com.ld.lib_base.api.OtherApi
+import com.ld.lib_base.api.coroutine.HomeApi
+import com.ld.lib_base.api.coroutine.LoginApi
+import com.ld.lib_base.api.coroutine.OtherApi
 import com.ld.lib_base.network.network.NetworkApi
 
 /**

@@ -1,4 +1,4 @@
-package com.ld.lib_base.api
+package com.ld.lib_base.api.coroutine
 
 import com.ld.lib_base.bean.home.ApiPagerResponse
 import com.ld.lib_base.bean.home.AriticleResponse

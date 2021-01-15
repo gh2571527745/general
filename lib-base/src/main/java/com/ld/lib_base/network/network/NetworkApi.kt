@@ -5,6 +5,7 @@ import com.franmontiel.persistentcookiejar.cache.SetCookieCache
 import com.franmontiel.persistentcookiejar.persistence.SharedPrefsCookiePersistor
 import com.google.gson.GsonBuilder
 import com.ld.lib_base.base.appContext
+import com.ld.lib_base.constant.Constant
 import com.ld.lib_base.network.network.interceptor.HeadInterceptor
 import me.hgj.jetpackmvvm.network.interceptor.CacheInterceptor
 import okhttp3.Cache
@@ -49,9 +50,9 @@ class NetworkApi : BaseNetworkApi() {
             // 日志拦截器
             addInterceptor(loggingInterceptor)
             //超时时间 连接、读、写
-            connectTimeout(10, TimeUnit.SECONDS)
-            readTimeout(5, TimeUnit.SECONDS)
-            writeTimeout(5, TimeUnit.SECONDS)
+            connectTimeout(Constant.TIMEOUT_CONNECTION, TimeUnit.SECONDS)
+            readTimeout(Constant.TIMEOUT_READ, TimeUnit.SECONDS)
+            writeTimeout(Constant.TIMEOUT_WRITE, TimeUnit.SECONDS)
         }
         return builder
     }

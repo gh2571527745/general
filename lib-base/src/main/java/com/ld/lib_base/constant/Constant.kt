@@ -9,4 +9,8 @@ object Constant {
     const val STRING_NET_LOADING = "请求网络中..."
     const val STRING_NET_HAS_NET = "有网路"
     const val STRING_NET_HAS_NET_NO = "无网路"
+
+    const val TIMEOUT_CONNECTION = 10L
+    const val TIMEOUT_READ = 5L
+    const val TIMEOUT_WRITE = 5L
 }
