@@ -18,11 +18,11 @@ class OtherActivity : BaseActivity<BaseViewModel, ActivityOtherBinding>() {
     override fun initView(savedInstanceState: Bundle?) {
         LogUtils.e("OtherActivity")
 
-        RetrofitClient.instance.create(LoginApiRetrofit.SERVER_URL, LoginApiRetrofit::class.java)
-            .loginNotCoroutine("wa_chumen", "123456").observe(this,
-                Observer {
-                    CacheUtil.setUser(it.data)
-                    appViewModel.userinfo.value = it.data
-                })
+//        RetrofitClient.instance.create(LoginApiRetrofit.SERVER_URL, LoginApiRetrofit::class.java)
+//            .loginNotCoroutine("wa_chumen", "123456").observe(this,
+//                Observer {
+//                    CacheUtil.setUser(it.data)
+//                    appViewModel.userinfo.value = it.data
+//                })
     }
 }

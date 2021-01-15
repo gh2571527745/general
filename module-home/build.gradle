@@ -80,5 +80,5 @@ dependencies {
     implementation project(':lib-base')
     implementation project(':lib-widget')
     implementation project(':lib-common')
-//    implementation project(':lib-aop')
+    implementation project(':lib-aop')
 }

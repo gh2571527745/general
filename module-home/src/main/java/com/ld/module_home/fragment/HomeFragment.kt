@@ -8,6 +8,7 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.blankj.utilcode.util.LogUtils
 import com.blankj.utilcode.util.ToastUtils
 import com.kingja.loadsir.core.LoadService
+import com.ld.lib_aop.checklogin.annotation.CheckLogin
 import com.ld.lib_base.base.fragment.BaseFragment
 import com.ld.lib_base.base.viewmodel.BaseViewModel
 import com.ld.lib_base.ext.*
@@ -49,6 +50,11 @@ class HomeFragment : BaseFragment<HomeViewModel, FragmentHomeBinding>() {
             layoutManager = LinearLayoutManager(context)
             adapter = articalAdapter
         }
+        articalAdapter.run {
+            setOnItemClickListener { adapter, view, position ->
+                clickItem(position)
+            }
+        }
         swipeRefresh.run {
             setOnRefreshLoadMoreListener(object : OnRefreshLoadMoreListener {
                 override fun onLoadMore(refreshLayout: RefreshLayout) {
@@ -65,6 +71,10 @@ class HomeFragment : BaseFragment<HomeViewModel, FragmentHomeBinding>() {
 
             })
         }
+    }
+
+    private fun clickItem(position: Int) {
+        LogUtils.e("点击了条目")
     }
 
     override fun lazyLoadData() {

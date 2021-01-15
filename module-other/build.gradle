@@ -83,13 +83,7 @@ dependencies {
     implementation project(':lib-widget')
     implementation project(':lib-common')
     implementation project(':lib-aop')
-
-//    if (isRunModule.toBoolean()) {
-//        implementation project(':module-login')
-//    }
 }
 aspectjx {
     include('com.ld')
-
-//    exclude 'androidx','com.google','com.squareup','com.alipay','org.apache'
 }
