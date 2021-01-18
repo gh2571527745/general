@@ -8,7 +8,7 @@ import com.ld.lib_base.network.network.NetworkApi
 /**
  *  author : ld
  *  time   : 2021/01/07
- *  desc   :
+ *  desc   :Arouter的工具类(区分不同的模块Api和基础连接)
  */
 
 fun otherApi(): OtherApi {

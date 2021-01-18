@@ -18,6 +18,7 @@ class OtherActivity : BaseActivity<BaseViewModel, ActivityOtherBinding>() {
     override fun initView(savedInstanceState: Bundle?) {
         LogUtils.e("OtherActivity")
 
+        //模块运行时，如果需要登录信息，可以调用该方法
 //        RetrofitClient.instance.create(LoginApiRetrofit.SERVER_URL, LoginApiRetrofit::class.java)
 //            .loginNotCoroutine("wa_chumen", "123456").observe(this,
 //                Observer {

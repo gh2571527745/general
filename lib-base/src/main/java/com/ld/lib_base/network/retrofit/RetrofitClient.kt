@@ -18,7 +18,7 @@ import java.util.concurrent.TimeUnit
 /**
  *  author : ld
  *  time   : 2021/01/15
- *  desc   :
+ *  desc   :Retrofit请求的封装类
  */
 class RetrofitClient private constructor() {
     companion object {

@@ -10,7 +10,7 @@ import retrofit2.http.POST
 /**
  *  author : ld
  *  time   : 2021/01/14
- *  desc   :
+ *  desc   :协程-登录Api
  */
 interface LoginApi {
     companion object {

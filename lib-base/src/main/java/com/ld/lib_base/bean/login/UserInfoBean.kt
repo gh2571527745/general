@@ -8,7 +8,7 @@ import kotlinx.android.parcel.Parcelize
 /**
  *  author : ld
  *  time   : 2021/01/07
- *  desc   :
+ *  desc   :用户信息
  */
 
 @SuppressLint("ParcelCreator")

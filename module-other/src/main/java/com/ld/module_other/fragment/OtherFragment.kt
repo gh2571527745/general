@@ -35,7 +35,10 @@ class OtherFragment : BaseFragment<OtherViewModel, FragmentOtherBinding>() {
 
     inner class ProxyClick {
 
-//        @SingleClick
+        /**
+         *aspectjx中的，重复点击处理和登录校验处理
+         */
+        @SingleClick
         @CheckLogin
         fun goLoginClick() {
             LogUtils.e("点击")

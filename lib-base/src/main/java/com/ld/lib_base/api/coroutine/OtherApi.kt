@@ -9,7 +9,7 @@ import retrofit2.http.POST
 /**
  *  author : ld
  *  time   : 2021/01/07
- *  desc   :
+ *  desc   :协程-其他Api
  */
 interface OtherApi {
 

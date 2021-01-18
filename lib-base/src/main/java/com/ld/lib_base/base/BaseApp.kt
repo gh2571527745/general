@@ -33,12 +33,15 @@ open class BaseApp : Application(), ViewModelStoreOwner {
         mAppViewModelStore = ViewModelStore()
     }
 
+    /**
+     * 获取一个全局的ViewModel
+     */
     fun getAppViewModelProvider(): ViewModelProvider {
         return ViewModelProvider(this, this.getAppFactory())
     }
 
     private fun getAppFactory(): ViewModelProvider.Factory {
-        if(mFactory==null){
+        if (mFactory == null) {
             mFactory = ViewModelProvider.AndroidViewModelFactory.getInstance(this)
         }
         return mFactory as ViewModelProvider.Factory

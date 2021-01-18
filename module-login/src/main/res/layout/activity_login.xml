@@ -100,9 +100,7 @@
                         android:paddingRight="12dp"
                         android:text="@={viewmodel.password}"
                         android:textColor="@color/black"
-                        android:textSize="15dp"
-                        />
-<!--                        bind:showPwd="@{viewmodel.isShowPwd}"-->
+                        android:textSize="15dp" />
 
                     <CheckBox
                         android:id="@+id/cb_login"
@@ -111,9 +109,7 @@
                         android:layout_marginRight="6dp"
                         android:button="@drawable/selector_keyvisibily"
                         android:checked="false"
-                        android:visibility="@{viewmodel.password.length()>0?view.VISIBLE:view.GONE}"
-                        />
-<!--                        bind:checkChange="@{click.onCheckedChangeListener}" -->
+                        android:visibility="@{viewmodel.password.length()>0?view.VISIBLE:view.GONE}" />
                 </LinearLayout>
 
                 <TextView
@@ -141,7 +137,8 @@
                     android:paddingBottom="18dp"
                     android:text="去注册"
                     android:textColor="@color/colorPrimary"
-                    android:textSize="15dp" />
+                    android:textSize="15dp"
+                    android:visibility="gone" />
             </LinearLayout>
         </ScrollView>
     </LinearLayout>

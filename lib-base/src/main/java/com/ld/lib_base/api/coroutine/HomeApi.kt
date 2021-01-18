@@ -9,7 +9,7 @@ import retrofit2.http.Path
 /**
  *  author : ld
  *  time   : 2021/01/07
- *  desc   :
+ *  desc   :协程-首页Api
  */
 interface HomeApi {
     companion object {

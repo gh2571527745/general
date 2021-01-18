@@ -10,7 +10,7 @@ import retrofit2.http.POST
 /**
  *  author : ld
  *  time   : 2021/01/15
- *  desc   :
+ *  desc   :Retrofit-登录Api
  */
 interface LoginApiRetrofit {
 

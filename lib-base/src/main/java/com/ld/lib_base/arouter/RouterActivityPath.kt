@@ -1,5 +1,4 @@
 package com.ld.lib_base.arouter
-
 class RouterActivityPath {
     object Login {
         const val LOGIN = "/module_login"

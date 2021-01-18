@@ -25,8 +25,7 @@
             android:src="@drawable/fab_up"
             android:visibility="invisible"
             app:elevation="5dp"
-            app:fabSize="mini"
-            app:layout_behavior="com.ld.lib_widget.widget.recyclerview.FatScrollAwareFABBehavior" />
+            app:fabSize="mini" />
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </layout>

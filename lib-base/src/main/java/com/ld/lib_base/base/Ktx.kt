@@ -16,7 +16,7 @@ import com.ld.lib_base.network.network.manager.NetworkStateReceive
 /**
  *  author : ld
  *  time   : 2020/12/28
- *  desc   :
+ *  desc   :网络监听、前后天监听、Activity状态监听
  */
 val appContext: Application by lazy {
     Ktx.app

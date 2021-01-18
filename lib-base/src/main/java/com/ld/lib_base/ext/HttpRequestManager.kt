@@ -20,10 +20,9 @@ val HttpRequestCoroutine: HttpRequestManager by lazy(mode = LazyThreadSafetyMode
 
 class HttpRequestManager {
     /**
-     * 获取首页文章数据
+     * 获取首页文章数据-(同时异步请求2个接口，请求完成后合并数据)
      */
     suspend fun getHomeData(pageNo: Int): ApiResponse<ApiPagerResponse<ArrayList<AriticleResponse>>> {
-        //同时异步请求2个接口，请求完成后合并数据
         return withContext(Dispatchers.IO) {
             val data = async { homeApi().getAritrilList(pageNo) }
             //如果App配置打开了首页请求置顶文章，且是第一页

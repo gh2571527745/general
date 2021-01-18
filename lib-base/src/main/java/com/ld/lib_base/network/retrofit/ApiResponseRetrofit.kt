@@ -22,6 +22,7 @@ class ApiResponseRetrofit<T> {
         errorMsg = msg
         data = null
     }
+
     constructor(code: Int, msg: String, data: T) {
         errorCode = code
         errorMsg = msg
