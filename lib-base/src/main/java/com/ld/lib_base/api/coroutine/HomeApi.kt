@@ -2,9 +2,10 @@ package com.ld.lib_base.api.coroutine
 
 import com.ld.lib_base.bean.home.ApiPagerResponse
 import com.ld.lib_base.bean.home.AriticleResponse
+import com.ld.lib_base.bean.home.ArticleListBean
+import com.ld.lib_base.bean.home.SearchHistoryHotBean
 import com.ld.lib_base.network.network.ApiResponse
-import retrofit2.http.GET
-import retrofit2.http.Path
+import retrofit2.http.*
 
 /**
  *  author : ld
@@ -27,4 +28,17 @@ interface HomeApi {
      */
     @GET("article/list/{page}/json")
     suspend fun getAritrilList(@Path("page") pageNo: Int): ApiResponse<ApiPagerResponse<ArrayList<AriticleResponse>>>
+
+
+    /**
+     * 热门搜索
+     */
+    @POST("hotkey/json")
+    suspend fun hotSearch(): ApiResponse<ArrayList<SearchHistoryHotBean>>
+
+    /**
+     * 搜索内容
+     */
+    @POST("article/query/{page}/json")
+    suspend fun search(@Path("page") pageNo: Int, @Query("k") k: String):ApiResponse<ArticleListBean>
 }

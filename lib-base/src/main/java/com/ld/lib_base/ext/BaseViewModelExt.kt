@@ -52,7 +52,7 @@ fun <T> BaseViewModel.request(
             LogUtils.e("Success")
             resultState.paresResult(it)
         }.onFailure {
-            LogUtils.e("onFailure")
+            LogUtils.e("onFailure:" + it.message)
             it.message?.logd()
             resultState.paresException(it)
         }
@@ -83,7 +83,7 @@ fun <T> BaseViewModel.requestNoCheck(
             LogUtils.e("Success")
             resultState.paresResult(it)
         }.onFailure {
-            LogUtils.e("onFailure")
+            LogUtils.e("onFailure:" + it.message)
             it.message?.loge()
             resultState.paresException(it)
         }

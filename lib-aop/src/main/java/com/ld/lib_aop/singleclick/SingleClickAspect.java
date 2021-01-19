@@ -94,8 +94,8 @@ public class SingleClickAspect {
             //检测间隔时间是否达到预设时间并且线程空闲
             if (canClick(interval)) {
                 mLastClickTime = System.currentTimeMillis();
-                joinPoint.proceed();
                 Log.i(Tag, "check click can continue");
+                joinPoint.proceed();
             } else {
                 Log.i(Tag, "check click can not continue");
             }

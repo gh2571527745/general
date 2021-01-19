@@ -3,17 +3,17 @@ package com.ld.module_home.fragment
 import android.os.Bundle
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+import com.blankj.utilcode.util.ActivityUtils
 import com.blankj.utilcode.util.LogUtils
 import com.blankj.utilcode.util.ToastUtils
 import com.kingja.loadsir.core.LoadService
-import com.ld.lib_aop.checklogin.annotation.CheckLogin
+import com.ld.lib_aop.singleclick.annotation.SingleClick
 import com.ld.lib_base.base.fragment.BaseFragment
-import com.ld.lib_base.base.viewmodel.BaseViewModel
 import com.ld.lib_base.ext.*
-import com.ld.lib_base.util.CacheUtil
 import com.ld.module_home.R
+import com.ld.module_home.activity.SearchHistoryActivity
 import com.ld.module_home.adapter.AriticleAdapter
 import com.ld.module_home.databinding.FragmentHomeBinding
 import com.ld.module_home.viewmodel.request.RequestHomeFragmentViewModel
@@ -21,7 +21,6 @@ import com.ld.module_home.viewmodel.state.HomeViewModel
 import com.scwang.smartrefresh.layout.api.RefreshLayout
 import com.scwang.smartrefresh.layout.listener.OnRefreshLoadMoreListener
 import kotlinx.android.synthetic.main.include_recyclerview.*
-import kotlinx.android.synthetic.main.include_toolbar.*
 
 /**
  *  author : ld
@@ -34,21 +33,29 @@ class HomeFragment : BaseFragment<HomeViewModel, FragmentHomeBinding>() {
     private val requestHomeFragmentViewModel: RequestHomeFragmentViewModel by viewModels()
 
     private val articalAdapter: AriticleAdapter by lazy { AriticleAdapter(arrayListOf(), true) }
+
     override fun layoutId(): Int = R.layout.fragment_home
 
     private var isRefresh: Boolean = false
 
     override fun initView(savedInstanceState: Bundle?) {
         mDataBinding.home = mViewModel
+        mDataBinding.click = ProClick()
 
         loadsir = loadServiceInit(swipeRefresh) {
             loadsir.showLoading()
             requestHomeFragmentViewModel.getHomeData(true)
         }
 
-        recyclerView.run {
+        rv_search_history_hot.run {
             layoutManager = LinearLayoutManager(context)
             adapter = articalAdapter
+            addItemDecoration(
+                DividerItemDecoration(
+                    context,
+                    DividerItemDecoration.VERTICAL
+                )
+            )
         }
         articalAdapter.run {
             setOnItemClickListener { adapter, view, position ->
@@ -106,5 +113,13 @@ class HomeFragment : BaseFragment<HomeViewModel, FragmentHomeBinding>() {
             })
         }
         )
+    }
+
+    inner class ProClick {
+        @SingleClick
+        fun searchClick() {
+            LogUtils.e("搜索")
+            ActivityUtils.startActivity(SearchHistoryActivity::class.java)
+        }
     }
 }

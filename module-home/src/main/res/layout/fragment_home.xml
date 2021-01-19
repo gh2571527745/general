@@ -5,6 +5,10 @@
     <data>
 
         <variable
+            name="click"
+            type="com.ld.module_home.fragment.HomeFragment.ProClick" />
+
+        <variable
             name="home"
             type="com.ld.module_home.viewmodel.state.HomeViewModel" />
     </data>
@@ -14,7 +18,29 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <include layout="@layout/include_toolbar" />
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            android:theme="@style/AppTheme.AppBarOverlay"
+            app:layout_scrollFlags="scroll|enterAlways"
+            app:popupTheme="@style/AppTheme.PopupOverlay">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:background="@drawable/ic_search"
+                    android:onClick="@{()->click.searchClick()}">
+
+                </ImageView>
+            </RelativeLayout>
+        </androidx.appcompat.widget.Toolbar>
 
         <include layout="@layout/include_list" />
 

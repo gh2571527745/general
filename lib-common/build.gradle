@@ -63,6 +63,7 @@ dependencies {
     //微信开源项目，替代SP
     api 'com.tencent:mmkv:1.0.22'
 
+    //分包
     api 'androidx.multidex:multidex:2.0.1'
 
     //BaseAdapter
@@ -71,7 +72,16 @@ dependencies {
     //下拉刷新-加载更多
     api 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.2'
 
+    //okhttp日志
     api 'com.squareup.okhttp3:logging-interceptor:3.10.0'
+
+    //标签布局
+    api 'com.google.android:flexbox:2.0.1'
+
+    //vLayout
+    api ('com.alibaba.android:vlayout:1.2.8@aar') {
+        transitive = true
+    }
 
     api rootProject.ext.dependencies.arouterApi
     kapt rootProject.ext.dependencies.arouterCompiler

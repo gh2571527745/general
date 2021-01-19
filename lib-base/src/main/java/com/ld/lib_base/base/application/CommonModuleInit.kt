@@ -7,7 +7,11 @@ import com.kingja.loadsir.callback.SuccessCallback
 import com.kingja.loadsir.core.LoadSir
 import com.ld.lib_base.BuildConfig
 import com.ld.lib_base.ext.util.jetpackMvvmLog
+import com.ld.lib_db.manager.DbUtil
 import com.ld.lib_widget.widget.loadCallBack.LoadingCallback
+import com.scwang.smartrefresh.layout.SmartRefreshLayout
+import com.scwang.smartrefresh.layout.footer.ClassicsFooter
+import com.scwang.smartrefresh.layout.header.ClassicsHeader
 import com.tencent.mmkv.MMKV
 import me.hgj.jetpackmvvm.demo.app.weight.loadCallBack.EmptyCallback
 import me.hgj.jetpackmvvm.demo.app.weight.loadCallBack.ErrorCallback
@@ -20,6 +24,17 @@ import java.io.File
  */
 class CommonModuleInit : IModuleInit {
     override fun onInitAhead(application: Application): Boolean {
+
+        SmartRefreshLayout.setDefaultRefreshHeaderCreator { _, _ ->
+            ClassicsHeader(
+                application
+            )
+        }
+        SmartRefreshLayout.setDefaultRefreshFooterCreator { _, _ ->
+            ClassicsFooter(
+                application
+            )
+        }
 
         MultiDex.install(application)
 
@@ -37,6 +52,8 @@ class CommonModuleInit : IModuleInit {
         ARouter.init(application)
 
         jetpackMvvmLog = BuildConfig.DEBUG
+
+        DbUtil.instance.init(application, "wanandroid")
 
 
         return false

@@ -40,6 +40,7 @@ dependencies {
 
     implementation project(path: ':lib-widget')
     implementation project(path: ':lib-common')
+    implementation project(path: ':lib-db')
 
 
 }

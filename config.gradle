@@ -17,6 +17,10 @@ ext {
             appcompat             : "androidx.appcompat:appcompat:1.0.0",
             arouterApi            : "com.alibaba:arouter-api:1.5.0",
             arouterCompiler       : "com.alibaba:arouter-compiler:1.2.2",
+
+            /*room 数据库 ---start*/
+            room                  : "androidx.room:room-runtime:$rootProject.lifecycle_version",
+            roomCompiler          : "androidx.room:room-compiler:$rootProject.lifecycle_version",
     ]
 
 }

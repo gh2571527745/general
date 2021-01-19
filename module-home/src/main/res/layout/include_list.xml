@@ -25,7 +25,8 @@
             android:src="@drawable/fab_up"
             android:visibility="invisible"
             app:elevation="5dp"
-            app:fabSize="mini" />
+            app:fabSize="mini"
+            app:layout_behavior="com.google.android.material.behavior.HideBottomViewOnScrollBehavior" />
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </layout>
