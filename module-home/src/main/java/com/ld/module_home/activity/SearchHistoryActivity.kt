@@ -36,7 +36,6 @@ import kotlinx.android.synthetic.main.activity_search_history.*
  */
 class SearchHistoryActivity :
     BaseActivity<RequestSearchHistoryViewModel, ActivitySearchHistoryBinding>() {
-    private lateinit var searchHistoryDao: SearchHistoryDao
 
     override fun layoutId() = R.layout.activity_search_history
 
@@ -51,9 +50,6 @@ class SearchHistoryActivity :
 
     override fun initView(savedInstanceState: Bundle?) {
         LogUtils.e("SearchHistoryActivity")
-
-        searchHistoryDao = DbUtil.instance.getAppDataBase().searchHistoryDao()
-        mSearchHistorySearchAdapter.setList(searchHistoryDao.selectHis())
 
         loadsir = loadServiceInit(rv_search_history_hot) {
             requestSearchHistoryViewModel.getHotSearchHistory()
@@ -87,7 +83,7 @@ class SearchHistoryActivity :
                 when (view.id) {
                     R.id.ivCha -> {
                         LogUtils.e("删除" + mSearchHistorySearchAdapter.data.get(position).id)
-                        searchHistoryDao.deleteById(mSearchHistorySearchAdapter.data.get(position).id)
+                        requestSearchHistoryViewModel.delteById(mSearchHistorySearchAdapter.data.get(position).id)
                     }
                 }
             }
@@ -112,21 +108,7 @@ class SearchHistoryActivity :
     }
 
     private fun saveDB(trim: String) {
-        var id: Long = 0
-        val selectHis: List<SearchHistoryEntity> = searchHistoryDao.selectHis()
-        for (searchHistoryEntity in selectHis) {
-            if (TextUtils.equals(searchHistoryEntity.name, trim)) {
-                id = searchHistoryEntity.id
-            }
-        }
-        if (id != 0L) {
-            searchHistoryDao.deleteById(id)
-        }
-        searchHistoryDao.insertPerson(SearchHistoryEntity(trim, TimeUtils.getNowDate()))
-
-        //刷新数据
-//        mSearchHistorySearchAdapter.setList(searchHistoryDao.selectHis())
-
+        requestSearchHistoryViewModel.saveDb(trim)
     }
 
     override fun createObserver() {

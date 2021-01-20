@@ -1,6 +1,8 @@
 package com.ld.module_home.viewmodel.request
 
+import android.text.TextUtils
 import androidx.lifecycle.MutableLiveData
+import com.blankj.utilcode.util.TimeUtils
 import com.ld.lib_base.arouter.homeApi
 import com.ld.lib_base.base.viewmodel.BaseViewModel
 import com.ld.lib_base.bean.home.ArticleListBean
@@ -26,7 +28,8 @@ class RequestSearchHistoryViewModel : BaseViewModel() {
 
     var getSearch = MutableLiveData<ResultState<ApiResponse<ArticleListBean>>>()
 
-    var inputSearch = MutableLiveData(DbUtil.instance.getAppDataBase().searchHistoryDao().selectHis())
+    var inputSearch =
+        MutableLiveData(DbUtil.instance.getAppDataBase().searchHistoryDao().selectHis())
 
     fun getHotSearchHistory() {
         requestNoCheck({ homeApi().hotSearch() }, getHotSearchResult, false)
@@ -39,5 +42,19 @@ class RequestSearchHistoryViewModel : BaseViewModel() {
             pageNo++
         }
         requestNoCheck({ homeApi().search(pageNo, k) }, getSearch, false)
+    }
+
+    fun delteById(id: Long) {
+        //数据库删除数据
+        DbUtil.instance.getAppDataBase().searchHistoryDao().deleteById(id)
+        //viewModel更新
+        inputSearch.value = DbUtil.instance.getAppDataBase().searchHistoryDao().selectHis()
+    }
+
+    fun saveDb(trim: String) {
+        DbUtil.instance.getAppDataBase().searchHistoryDao()
+            .insertPerson(SearchHistoryEntity(trim, TimeUtils.getNowDate()))
+
+        inputSearch.value = DbUtil.instance.getAppDataBase().searchHistoryDao().selectHis()
     }
 }

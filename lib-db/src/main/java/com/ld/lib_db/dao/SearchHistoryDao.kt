@@ -14,7 +14,7 @@ import com.ld.lib_db.entity.SearchHistoryEntity
 @Dao
 interface SearchHistoryDao {
 
-    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertPerson(entity: SearchHistoryEntity?): Long
 
     @Query("select * from SearchHistoryEntity")
