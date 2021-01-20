@@ -1,5 +1,7 @@
 package com.ld.lib_base.network.network
 
+import com.ld.lib_base.constant.Constant
+
 
 /**
  *  author : ld
@@ -8,7 +10,7 @@ package com.ld.lib_base.network.network
  */
 data class ApiResponse<T>(val errorCode: Int, val errorMsg: String, val data: T) :
     BaseResponse<T>() {
-    override fun isSuccess() = errorCode == 0
+    override fun isSuccess() = errorCode == Constant.NET_DATA_GET_SUCCESS
     override fun getResponseData() = data
 
     override fun getResponseCode() = errorCode

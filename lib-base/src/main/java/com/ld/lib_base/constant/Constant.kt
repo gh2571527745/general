@@ -13,4 +13,7 @@ object Constant {
     const val TIMEOUT_CONNECTION = 10L
     const val TIMEOUT_READ = 5L
     const val TIMEOUT_WRITE = 5L
+
+    const val NET_DATA_GET_SUCCESS = 0
+    const val NET_DATA_GET_ERROR = -1
 }

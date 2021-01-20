@@ -1,5 +1,7 @@
 package com.ld.lib_base.network.retrofit
 
+import com.ld.lib_base.constant.Constant
+
 /**
  *  author : ld
  *  time   : 2021/01/15
@@ -30,7 +32,7 @@ class ApiResponseRetrofit<T> {
     }
 
     val isSuccess: Boolean
-        get() = if (errorCode == 0) {
+        get() = if (errorCode == Constant.NET_DATA_GET_SUCCESS) {
             true
         } else {
             false

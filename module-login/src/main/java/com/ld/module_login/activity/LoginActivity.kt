@@ -10,6 +10,7 @@ import com.blankj.utilcode.util.LogUtils
 import com.blankj.utilcode.util.ToastUtils
 import com.ld.lib_base.arouter.RouterActivityPath
 import com.ld.lib_base.base.activity.BaseActivity
+import com.ld.lib_base.constant.Constant
 import com.ld.lib_base.ext.loadServiceInit
 import com.ld.lib_base.ext.parseState
 import com.ld.lib_base.ext.showError
@@ -64,7 +65,7 @@ class LoginActivity : BaseActivity<LoginRegisterViewModel, ActivityLoginBinding>
             }, {
                 loadsir.showSuccess()
             }, {
-                if (it.errCode == -1) {//错误码错误
+                if (it.errCode == Constant.NET_DATA_GET_ERROR) {//错误码错误
                     ToastUtils.showShort(it.errorMsg)
                     loadsir.showSuccess()
                 } else {//Error错误
@@ -76,7 +77,7 @@ class LoginActivity : BaseActivity<LoginRegisterViewModel, ActivityLoginBinding>
             parseState(resultState, {
                 loadsir.showLoading()
             }, {
-                if (it.errorCode == -1) {//错误码错误
+                if (it.errorCode == Constant.NET_DATA_GET_ERROR) {//错误码错误
                     ToastUtils.showShort(it.errorMsg)
                     return@parseState
                 }

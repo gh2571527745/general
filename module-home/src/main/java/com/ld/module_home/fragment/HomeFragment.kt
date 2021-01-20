@@ -11,6 +11,7 @@ import com.blankj.utilcode.util.ToastUtils
 import com.kingja.loadsir.core.LoadService
 import com.ld.lib_aop.singleclick.annotation.SingleClick
 import com.ld.lib_base.base.fragment.BaseFragment
+import com.ld.lib_base.constant.Constant
 import com.ld.lib_base.ext.*
 import com.ld.module_home.R
 import com.ld.module_home.activity.SearchHistoryActivity
@@ -95,7 +96,7 @@ class HomeFragment : BaseFragment<HomeViewModel, FragmentHomeBinding>() {
             parseState(resultState, {
                 loadsir.showLoading()
             }, {
-                if (it.errorCode == -1) {//错误码错误
+                if (it.errorCode == Constant.NET_DATA_GET_ERROR) {//错误码错误
                     ToastUtils.showShort(it.errorMsg)
                     return@parseState
                 }
