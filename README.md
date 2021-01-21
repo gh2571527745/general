@@ -1,7 +1,7 @@
 
 
 ### 简介
-本项目基于 Arouter+Kotlin+Jetpack(Lifecycle+UnPeek-LiveData等+Room)+(协程+Retrofit)+Aop(Aspectjx)+ktx拓展函数等。如有任何疑问或bug欢迎给我提[issues]((https://github.com/1170762202/WanAndroid/issues)),项目会一直维护下去，一起努力打造一个完美的app。
+本项目基于 Arouter+Kotlin+Jetpack(Lifecycle+UnPeek-LiveData等+Room)+(协程+Retrofit)+Aop(Aspectjx)+ktx拓展函数等。该项目仅仅是个简单的demo,用做通用框架，((https://github.com/1170762202/WanAndroid/issues))。
 [源码地址](https://github.com/gh2571527745/general)
 
 # 目录结构
