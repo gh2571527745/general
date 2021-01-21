@@ -5,6 +5,7 @@
 [源码地址](https://github.com/gh2571527745/general)
 
 # 目录结构
+```kotlin
 ||-- app // app 入口
     ||lib //lib库
       ||--lib-aop// aop 封装（登录校验、重复点击）
@@ -21,7 +22,7 @@
 
  #### module单独编译运行说明
  gradle.properties 文件下有个"集成开发模式" 和 "组件开发模式"的切换开关 true表示组件独立运行，false表示一个library
- ````
+ ````kotlin
  isRunModule=true
  ````
 
