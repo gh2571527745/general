@@ -7,7 +7,7 @@ import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import androidx.viewpager2.widget.ViewPager2
 import com.alibaba.android.arouter.launcher.ARouter
-import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.ld.general_framework.ui.activity.WelcomActivity
 import com.ld.lib_base.base.appContext
 import com.ld.lib_base.arouter.RouterActivityPath
@@ -59,13 +59,8 @@ fun Activity.lanchLogin() {
 /**
  * ViewPager初始化
  */
-fun BottomNavigationViewEx.init(navigationItemSelectedAction: (Int) -> Unit): BottomNavigationViewEx {
-    enableAnimation(true)
-    enableShiftingMode(false)
-    enableItemShiftingMode(true)
-    itemIconTintList = SettingUtil.getColorStateList(SettingUtil.getColor(appContext))
-    itemTextColor = SettingUtil.getColorStateList(appContext)
-    setTextSize(12F)
+fun BottomNavigationView.init(navigationItemSelectedAction: (Int) -> Unit): BottomNavigationView {
+    itemIconTintList=null
     setOnNavigationItemSelectedListener {
         navigationItemSelectedAction.invoke(it.itemId)
         true
@@ -78,7 +73,7 @@ fun BottomNavigationViewEx.init(navigationItemSelectedAction: (Int) -> Unit): Bo
  * @receiver BottomNavigationViewEx
  * @param ids IntArray
  */
-fun BottomNavigationViewEx.interceptLongClick(vararg ids: Int) {
+fun BottomNavigationView.interceptLongClick(vararg ids: Int) {
     val bottomNavigationMenuView: ViewGroup = (this.getChildAt(0) as ViewGroup)
     for (index in ids.indices) {
         bottomNavigationMenuView.getChildAt(index).findViewById<View>(ids[index])

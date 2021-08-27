@@ -66,9 +66,6 @@ dependencies {
     api rootProject.ext.dependencies.arouterApi
     kapt rootProject.ext.dependencies.arouterCompiler
 
-    //底部bottomBar
-    implementation 'com.github.ittianyu:BottomNavigationViewEx:2.0.4'
-
     implementation project(':lib-base')
     implementation project(':lib-widget')
     implementation project(':lib-common')

@@ -3,6 +3,7 @@ package com.ld.lib_base.arouter
 import com.ld.lib_base.api.coroutine.HomeApi
 import com.ld.lib_base.api.coroutine.LoginApi
 import com.ld.lib_base.api.coroutine.OtherApi
+import com.ld.lib_base.api.coroutine.UrlApi
 import com.ld.lib_base.network.network.NetworkApi
 
 /**
@@ -21,4 +22,8 @@ fun homeApi(): HomeApi {
 
 fun loginApi(): LoginApi {
     return NetworkApi.INSTANCE.getApi(LoginApi::class.java, LoginApi.SERVER_URL)
+}
+
+fun urlApi(url: String): UrlApi {
+    return NetworkApi.INSTANCE.getApi(UrlApi::class.java, url)
 }

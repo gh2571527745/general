@@ -15,14 +15,13 @@
             android:layout_height="0dp"
             android:layout_weight="1" />
 
-        <com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx
+        <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/mainBottom"
             android:layout_width="match_parent"
             android:layout_height="@dimen/qb_px_100"
             android:background="@color/color_bg_2"
             app:itemIconSize="@dimen/qb_px_40"
-            app:itemIconTint="@color/bottom_selector"
-            app:itemTextColor="@color/bottom_selector"
+            app:labelVisibilityMode="labeled"
             app:menu="@menu/menu_navigation" />
     </LinearLayout>
 </layout>

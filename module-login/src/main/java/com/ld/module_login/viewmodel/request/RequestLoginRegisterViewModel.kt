@@ -5,6 +5,7 @@ import com.ld.lib_base.arouter.loginApi
 import com.ld.lib_base.base.viewmodel.BaseViewModel
 import com.ld.lib_base.state.ResultState
 import com.ld.lib_base.bean.login.UserInfoBean
+import com.ld.lib_base.ext.request
 import com.ld.lib_base.ext.requestNoCheck
 import com.ld.lib_base.network.network.ApiResponse
 
@@ -23,7 +24,7 @@ class RequestLoginRegisterViewModel : BaseViewModel() {
 
     fun loginReq(username: String, password: String) {
         //方式1
-//        request({ otherApi().login(username,password)},loginResult,true)
+//        request({ loginApi().login(username,password)},loginResult,true)
         //方式2
         requestNoCheck({ loginApi().login(username, password) }, loginResult2, true)
     }
